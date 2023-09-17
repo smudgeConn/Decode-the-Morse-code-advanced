@@ -1,6 +1,3 @@
-# known issues: doesn't work on one test case
-# key error: '1'
-
 def decode_bits(bits):
 # ToDo: Accept 0's and 1's, return dots, dashes and spaces
 
@@ -8,7 +5,7 @@ def decode_bits(bits):
     bits_string = str(bits)
     
 # remove leading and trailing 0s
-    bits_string.strip('0')
+    bits_string = bits_string.strip('0')
     
 # determine time unit
     time_unit = 0
@@ -23,8 +20,11 @@ def decode_bits(bits):
             if time_unit > length or time_unit == 0:
                 time_unit = length
             length = 1
+    if time_unit > length or time_unit == 0:
+        time_unit = length
 
-
+    print('time:', time_unit)
+    print('bits: ', bits_string)
 # replace one time unit of 1s with '.'
     dot = '1'*time_unit
 # replace three time units of 1s with '-'
